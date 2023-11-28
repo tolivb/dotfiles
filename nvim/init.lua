@@ -12,7 +12,13 @@ vim.keymap.set('n', "<leader>u", function()
   vim.cmd.MasonUpdate()
 end, { desc = "R[u]n TSUpdate, MasonUpdate" })
 
+vim.keymap.set("n", "<A-->", "<cmd>vertical resize -4<cr>", {desc = "vertical resize -4"})
+vim.keymap.set("n", "<A-0>", "<cmd>vertical resize +4<cr>", {desc = "vertical resize +4"})
+vim.keymap.set("n", "<A-1>", "<cmd>resize -4<cr>", {desc = "resize -4"})
+vim.keymap.set("n", "<A-2>", "<cmd>resize +4<cr>", {desc = "resize +4"})
+
 -- Move Lines
+vim.keymap.set("n", "(", "I# <esc>j", { desc = "comment down" })
 vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move down" })
 vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move up" })
 vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move down" })
@@ -36,8 +42,8 @@ vim.keymap.set({ "n", "v" }, "<leader>0", "<cmd>e ~/.config/nvim/init.lua<cr>")
 vim.keymap.set({ "n", "v" }, "<leader>9", "<cmd>e ~/.config/nvim/tb/plugins.lua<cr>")
 vim.keymap.set({ "n", "v" }, "<leader>8", "<cmd>Telescope<cr>")
 vim.keymap.set({ "n", "v" }, "<leader>7", "<cmd>Lazy<cr>")
-vim.keymap.set("n", "<C-w>", "<cmd>bw<cr>")
 vim.keymap.set({ "n", "v", "i" }, "<A-n>", "<cmd>tabnew<cr>")
+vim.keymap.set("n", "<C-w>", "<cmd>bw<cr>")
 vim.keymap.set({ "n", "v", "i" }, "<A-t>", "<cmd>tabnext<cr>")
 vim.keymap.set({ "n", "v", "i" }, "<A-e>", "<cmd>NvimTreeToggle<cr>")
 
@@ -160,7 +166,7 @@ vim.defer_fn(function()
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
           [']m'] = '@function.outer',
-          [']]'] = '@class.outer',
+--          [']]'] = '@class.outer',
         },
         goto_next_end = {
           [']M'] = '@function.outer',
@@ -168,7 +174,7 @@ vim.defer_fn(function()
         },
         goto_previous_start = {
           ['[m'] = '@function.outer',
-          ['[['] = '@class.outer',
+  --        ['[['] = '@class.outer',
         },
         goto_previous_end = {
           ['[M'] = '@function.outer',
@@ -302,7 +308,7 @@ mason_lspconfig.setup_handlers {
 require('formatter').setup(
   {
     logging = true,
-    log_level = vim.log.levels.WARN,
+    log_level = vim.log.levels.DEBUG,
     filetype = {
       lua = { require("formatter.filetypes.lua").stylua },
       json = { require("formatter.filetypes.json").prettier },
@@ -311,6 +317,10 @@ require('formatter').setup(
       html = { require("formatter.filetypes.html").prettier },
       css = { require("formatter.filetypes.css").prettier },
       vue = { require("formatter.filetypes.vue").prettier },
+      typescript = { require("formatter.filetypes.typescript").prettier },
+      javascript = { require("formatter.filetypes.javascript").prettier },
+      yaml = { require("formatter.filetypes.yaml").prettier },
+      php = { require("formatter.filetypes.javascript").prettier },
 
       ["*"] = {
         -- "formatter.filetypes.any" defines default configurations for any

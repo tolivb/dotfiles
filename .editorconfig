@@ -6,9 +6,11 @@ root = true
 [*]
 end_of_line = lf
 insert_final_newline = true
-max_line_length=160
+max_line_length=140
+indent_size=4
+indent_style = space
 
-[*.{js,py}]
+[*.{js,py,ts,cjs}]
 charset = utf-8
 
 # tab indentation
@@ -24,6 +26,7 @@ indent_style = tab
 [*.{js,ts,vue}]
 indent_style = space
 indent_size = 4
+trim_trailing_whitespace = true
 
 [*.java]
 indent_style = tab
@@ -32,6 +35,10 @@ indent_size = 4
 [*.lua]
 indent_style = tab
 indent_size = 4
+
+[*.{yaml,yml}]
+indent_size = 2
+indent_style = space
 
 # Matches the exact files either package.json or .travis.yml
 [{package.json,.travis.yml}]

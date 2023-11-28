@@ -54,8 +54,11 @@ vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 150
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 200
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 vim.o.termguicolors = true
+
+vim.o.splitright = true
+vim.o.splitbelow = true
