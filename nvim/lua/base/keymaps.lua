@@ -38,10 +38,27 @@ vim.keymap.set("n", "<Tab>", "<cmd>:popup mousemenu<CR>")
 keymap({ "n", "o", "x" }, "<s-h>", "^", opts)
 keymap({ "n", "o", "x" }, "<s-l>", "g_", opts)
 
--- tailwind bearable to work with
 keymap({ "n", "x" }, "j", "gj", opts)
 keymap({ "n", "x" }, "k", "gk", opts)
 keymap("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
 
 
 vim.api.nvim_set_keymap('t', '<C-;>', '<C-\\><C-n>', opts)
+
+keymap('n', "<leader>u", function()
+  vim.cmd.TSUpdate()
+  vim.cmd.MasonUpdate()
+end, { desc = "R[u]n TSUpdate, MasonUpdate" })
+
+--keymap({ "n", "v" }, "<S-f>", "<cmd>Format<cr>")
+keymap({ "n", "v" }, "<leader>0", "<cmd>e ~/.config/nvim/init.lua<cr>")
+
+-- windows
+keymap("n", "<C-q>", "<cmd>bw<cr>")
+keymap("n", "<C-w>", "<C-w>w")
+
+keymap("n", "<A-->", "<cmd>vertical resize -4<cr>", {desc = "vertical resize -4"})
+keymap("n", "<A-0>", "<cmd>vertical resize +4<cr>", {desc = "vertical resize +4"})
+keymap("n", "<A-1>", "<cmd>resize -4<cr>", {desc = "resize -4"})
+keymap("n", "<A-2>", "<cmd>resize +4<cr>", {desc = "resize +4"})
+
