@@ -53,3 +53,12 @@ vim.cmd [[set iskeyword+=-]]
 vim.g.netrw_banner = 0
 vim.g.netrw_mouse = 2
 
+vim.g.bigfile_size=1024*1024*1 -- 1M
+
+--vim.filetype.add({
+--	extension = {
+--		mdx = "markdown.mdx",
+--	},
+--	filename = {},
+--	pattern = {},
+--})

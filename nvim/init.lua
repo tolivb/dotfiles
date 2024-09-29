@@ -23,6 +23,7 @@ activate_plugin_in_lazy("base.autopairs")
 activate_plugin_in_lazy("base.toggleterm")
 activate_plugin_in_lazy("base.telescopeuiselect")
 activate_plugin_in_lazy("base.surround")
+activate_plugin_in_lazy("base.lualine")
 
 -- extra
 activate_plugin_in_lazy("base.schemastore")
